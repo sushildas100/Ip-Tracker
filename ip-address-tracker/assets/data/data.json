@@ -1,0 +1,21 @@
+{
+    "ip": "157.35.17.76",
+    "location": {
+        "country": "IN",
+        "region": "State of Karnataka",
+        "city": "Mangalore",
+        "lat": 12.91734,
+        "lng": 78.85603,
+        "postalCode": "",
+        "timezone": "+05:30",
+        "geonameId": 1263780
+    },
+    "as": {
+        "asn": 55836,
+        "name": "RELIANCEJIO-IN",
+        "route": "157.35.0.0\/16",
+        "domain": "http:\/\/www.jio.com",
+        "type": "Cable\/DSL\/ISP"
+    },
+    "isp": "Reliance Jio Infocomm Limited"
+}

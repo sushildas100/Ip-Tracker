@@ -1,0 +1,149 @@
+$color-white: #FFFFFF
+$color-black: #000
+$color-dark-gray: #969696
+$color-very-dark-gray: #2B2B2B
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    font-size: 16px
+    font-family: 'Rubik', sans-serif
+    transition: .3s
+
+
+@mixin div($width, $height, $bg: $color-very-dark-gray)
+    width: $width
+    height: $height
+    background-color: $bg
+
+@mixin text($fs, $fw, $letter-sp, $text-case, $color)
+    font-size: $fs
+    font-weight: $fw
+    color: $color
+    letter-spacing: $letter-sp
+    text-transform: $text-case
+
+#root
+    @include div(100%, 100vh)
+    position: relative
+    .banner-container
+        @include div(100%, 280px, $color-very-dark-gray )
+
+        img
+            @include div(100%, 100%, $color-very-dark-gray )
+            object-fit: cover
+
+    .map-container
+        @include div(100%, calc(100vh - 280px), $color-very-dark-gray )
+        background: $color-very-dark-gray
+        z-index: 1
+
+    .input-output-view
+        @include div(100%, auto, transparent)
+        padding: 30px 24px
+        display: flex
+        flex-direction: column
+        align-items: center
+        position: absolute
+        top: 0
+        z-index: 5
+
+        h1
+            @include text(2rem, 500, normal, capitalize, $color-white)
+
+        form
+            max-width: 555px
+            @include div(100%, 58px, transparent)
+            box-shadow: 0 20px 20px rgba(0, 0, 0, 15%)
+            border-radius: 15px
+            margin-top: 28px
+            overflow: hidden
+            display: flex
+
+            input
+                @include div(calc(100% - 58px), 100%, $color-white)
+                @include text(1.2rem, 400, normal, none, $color-very-dark-gray)
+                border-radius: 15px 0 0 15px
+                border: none
+                padding: 0 24px
+
+            button
+                @include div(58px, 58px, $color-black)
+                border-radius: 0 15px 15px 0
+                border: none
+                cursor: pointer
+
+            &:hover
+                button
+                    background: $color-very-dark-gray
+
+        .ip-details-seprators
+            max-width: 1110px
+            @include div(100%, auto, $color-white)
+            box-shadow: 0 20px 20px rgba(0, 0, 0, 15%)
+            margin-top: 48px
+            border-radius: 15px
+            position: relative
+            z-index: 4
+
+            .ip-details
+                width: 100%
+                display: flex
+                justify-content: space-between
+                align-items: center
+
+                .ip-D
+                    width: 100%
+                    padding: 32px 36px
+                    padding-right: 40px
+                    align-self: flex-start
+                    h1
+                        @include text(13px, 700, .1rem, uppercase, $color-dark-gray)
+
+                    h2
+                        @include text(26px, 500, -0.008em, none, $color-very-dark-gray)
+                        margin-top: 13px
+
+                .seprator
+                    border: .5px solid $color-dark-gray
+                    height: 75px
+                    opacity: .5
+
+    .leaflet-control-container
+        position: absolute
+        bottom: 100px
+
+@media screen and (max-width: 824px)
+    #root
+        .banner-container
+            height: 300px
+        .map-container 
+            height: calc( 100% - 300px )
+        
+        .input-output-view
+            padding: 26px 24px
+
+            form
+                margin-top: 23px
+
+            .ip-details-seprators
+                margin-top: 23px
+
+                .ip-details
+                    flex-direction: column
+                    padding: 15px 0
+
+                    .ip-D
+                        text-align: center
+                        padding: 12px 36px
+
+                        h1
+                            letter-spacing: .15rem
+                            font-size: 10px
+
+                        h2
+                            margin-top: 7px
+                            font-size: 20px
+
+                    .seprator
+                        display: none
